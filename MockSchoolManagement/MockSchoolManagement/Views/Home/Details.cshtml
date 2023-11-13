@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+    @model  MockSchoolManagement.Models.Student;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <h1>@ViewBag.PageTitle</h1>
+    <div>
+        姓名:@Model.Name
+    </div>
+    <div>
+        邮箱：@Model.Email
+    </div>
+    <div>
+        主修科目:@Model.Major
+    </div>
+</body>
+</html>

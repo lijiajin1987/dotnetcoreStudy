@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MockSchoolManagement.DataRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,9 @@ namespace MockSchoolManagement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddMvc(a => a.EnableEndpointRouting = false) ;
+            services.AddControllersWithViews(a => a.EnableEndpointRouting = false);
+            services.AddSingleton<IStudentRepository, MockStudentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +40,8 @@ namespace MockSchoolManagement
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
+
+            app.UseMvcWithDefaultRoute();
 
             app.UseRouting();
 
