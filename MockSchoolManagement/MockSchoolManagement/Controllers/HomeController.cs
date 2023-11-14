@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using MockSchoolManagement.DataRepositories;
 using MockSchoolManagement.Models;
+using MockSchoolManagement.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,18 +29,20 @@ namespace MockSchoolManagement.Controllers
         //    return "Hello from MVC";
         //    //return View();
         //}
-        public string Index()
+        public ViewResult Index()
         {
-            
-            return _studentRepository.GetStudent(1).Name;
+            var model= _studentRepository.GetAllStudents();
+            return View(model);
             //return View();
         }
 
         public ViewResult Details() 
         {
-            ViewBag.PageTitle = "学生详情";
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel();
+            homeDetailsViewModel.PageTitle = "学生详情";
             Student model=_studentRepository.GetStudent(1);
-            return View(model);
+            homeDetailsViewModel.Student = model;
+            return View(homeDetailsViewModel);
         }
         public IActionResult Privacy()
         {

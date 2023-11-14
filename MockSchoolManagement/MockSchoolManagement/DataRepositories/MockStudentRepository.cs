@@ -18,6 +18,12 @@ namespace MockSchoolManagement.DataRepositories
             };
 
         }
+
+        public IEnumerable<Student> GetAllStudents()
+        {
+            return _studentList;
+        }
+
         public Student GetStudent(int id)
         {
             return _studentList.FirstOrDefault(o=>o.Id==id);

@@ -1,7 +1,7 @@
 ﻿
 @{
     Layout = null;
-    @model  MockSchoolManagement.Models.Student;
+    @model MockSchoolManagement.ViewModels.HomeDetailsViewModel;
 }
 
 <!DOCTYPE html>
@@ -12,15 +12,15 @@
     <title>Details</title>
 </head>
 <body>
-    <h1>@ViewBag.PageTitle</h1>
+    <h1>@Model.PageTitle</h1>
     <div>
-        姓名:@Model.Name
+        姓名:@Model.Student.Name
     </div>
     <div>
-        邮箱：@Model.Email
+        邮箱：@Model.Student.Email
     </div>
     <div>
-        主修科目:@Model.Major
+        主修科目:@Model.Student.Major
     </div>
 </body>
 </html>
