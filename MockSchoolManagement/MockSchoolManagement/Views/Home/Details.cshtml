@@ -1,26 +1,23 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    //Layout = null;
     @model MockSchoolManagement.ViewModels.HomeDetailsViewModel;
+
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <h1>@Model.PageTitle</h1>
-    <div>
-        姓名:@Model.Student.Name
-    </div>
-    <div>
-        邮箱：@Model.Student.Email
-    </div>
-    <div>
-        主修科目:@Model.Student.Major
-    </div>
-</body>
-</html>
+
+<h1>@Model.PageTitle</h1>
+<div>
+    姓名:@Model.Student.Name
+</div>
+<div>
+    邮箱：@Model.Student.Email
+</div>
+<div>
+    主修科目:@Model.Student.Major
+</div>
+
+@section Scripts{
+<script src="~/js/CustomScript.js"></script>
+}
