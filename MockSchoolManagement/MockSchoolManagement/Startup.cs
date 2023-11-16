@@ -1,4 +1,4 @@
-?using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,8 +24,8 @@ namespace MockSchoolManagement
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddMvc(a => a.EnableEndpointRouting = false) ;
-            //services.AddControllersWithViews(a => a.EnableEndpointRouting = false);
-            services.AddControllersWithViews().AddXmlSerializerFormatters();
+            services.AddControllersWithViews(a => a.EnableEndpointRouting = false);
+            //services.AddControllersWithViews().AddXmlSerializerFormatters();
             services.AddSingleton<IStudentRepository, MockStudentRepository>();
         }
 
@@ -43,10 +43,10 @@ namespace MockSchoolManagement
             app.UseStaticFiles();
 
             //app.UseMvcWithDefaultRoute();
-            app.UseMvc();
+            //app.UseMvc();
 
             app.UseRouting();
-
+           
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
