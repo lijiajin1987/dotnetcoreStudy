@@ -1,13 +1,16 @@
 ﻿@{
     //Layout = null;
     @model MockSchoolManagement.ViewModels.HomeDetailsViewModel;
-
+    ViewBag.Title = "学生详情";
 }
 
 <!DOCTYPE html>
 
 
-<h1>@Model.PageTitle</h1>
+<h3>@Model.PageTitle</h3>
+<div class="row justify-content-center m-3">
+
+</div>
 <div>
     姓名:@Model.Student.Name
 </div>
