@@ -44,6 +44,13 @@ namespace MockSchoolManagement.Controllers
             homeDetailsViewModel.Student = model;
             return View(homeDetailsViewModel);
         }
+
+
+        public IActionResult Create() 
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
