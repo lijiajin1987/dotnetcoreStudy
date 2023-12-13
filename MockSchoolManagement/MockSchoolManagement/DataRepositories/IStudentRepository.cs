@@ -8,5 +8,6 @@ namespace MockSchoolManagement.DataRepositories
     {
         Student GetStudent(int id);
         IEnumerable<Student> GetAllStudents();
+        Student Add(Student student);
     }
 }

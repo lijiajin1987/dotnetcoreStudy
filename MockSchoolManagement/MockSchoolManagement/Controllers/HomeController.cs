@@ -13,6 +13,7 @@ namespace MockSchoolManagement.Controllers
 {
     public class HomeController : Controller
     {
+        
         private readonly ILogger<HomeController> _logger;
         private readonly IStudentRepository _studentRepository=new MockStudentRepository();
         //public HomeController(ILogger<HomeController> logger)
@@ -36,19 +37,24 @@ namespace MockSchoolManagement.Controllers
             //return View();
         }
 
-        public ViewResult Details() 
+        public ViewResult Details(int?id) 
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel();
             homeDetailsViewModel.PageTitle = "学生详情";
-            Student model=_studentRepository.GetStudent(1);
+            Student model=_studentRepository.GetStudent(id??1);
             homeDetailsViewModel.Student = model;
             return View(homeDetailsViewModel);
         }
-
-
-        public IActionResult Create() 
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public RedirectToActionResult Create(Student student) 
+        {
+            Student newstudent = _studentRepository.Add(student);
+            return RedirectToAction("Details",new { id=newstudent.Id }) ;
         }
 
         public IActionResult Privacy()

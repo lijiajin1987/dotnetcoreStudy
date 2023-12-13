@@ -5,6 +5,7 @@
        None,
        FirstGrade,
        SecondGrade,
-       GradeThree
+       GradeThree,
+       Fourthgrade,
     }
 }

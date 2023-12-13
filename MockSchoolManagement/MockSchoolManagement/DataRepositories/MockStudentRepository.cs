@@ -11,12 +11,20 @@ namespace MockSchoolManagement.DataRepositories
         {
             _studentList = new List<Student>()
             {
-                new Student(){Id=1,Name="张三",Major="计算机科学",Email="zhangsan@qq.com" },
-                new Student(){Id=2,Name="李四",Major="物流",Email="lisi@qq.com" },
-                new Student(){Id=3,Name="王五",Major="电子商务",Email="wangwu@qq.com" },
-                new Student(){Id=4,Name="赵六",Major="会计",Email="zhaoliu@qq.com" },
+                new Student(){Id=1,Name="张三",Major=MajorEnum.SecondGrade,Email="zhangsan@qq.com" },
+                new Student(){Id=2,Name="李四",Major=MajorEnum.Fourthgrade,Email="lisi@qq.com" },
+                new Student(){Id=3,Name="王五",Major=MajorEnum.FirstGrade,Email="wangwu@qq.com" },
+                new Student(){Id=4,Name="赵六",Major=MajorEnum.GradeThree,Email="zhaoliu@qq.com" },
             };
 
+        }
+
+        public Student Add(Student student)
+        {
+            student.Id = _studentList.Max(s => s.Id) + 1;
+
+            _studentList.Add(student);
+            return student;
         }
 
         public IEnumerable<Student> GetAllStudents()
