@@ -1,8 +1,10 @@
 ﻿
+
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
     @model Student;
+    @inject IStudentRepository _studentRepository
 }
 <form asp-controller="home" asp-action="create" method="post">
     <div asp-validation-summary="All">
@@ -24,5 +26,7 @@
         <button type="submit">创建</button>
     </div>
     
-    
+    <div>
+        <div>学生总人数：@_studentRepository.GetAllStudents().Count().ToString()</div>
+    </div>
 </form>
