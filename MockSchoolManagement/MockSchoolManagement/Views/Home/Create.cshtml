@@ -5,17 +5,24 @@
     @model Student;
 }
 <form asp-controller="home" asp-action="create" method="post">
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name"/>
+    <div asp-validation-summary="All">
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" placeholder="请输入姓名" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+        </div>
+        <div>
+            <label asp-for="Major"></label>
+            <select asp-for="Major" asp-items="Html.GetEnumSelectList(typeof(MajorEnum))">
+                <option value="">请选择</option>
+            </select>
+        </div>
+        <button type="submit">创建</button>
     </div>
-    <div>
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-    </div>
-    <div>
-        <label asp-for="Major"></label>
-        <select asp-for="Major" asp-items="Html.GetEnumSelectList(typeof(MajorEnum))"></select>
-    </div>
-    <button type="submit">创建</button>
+    
+    
 </form>

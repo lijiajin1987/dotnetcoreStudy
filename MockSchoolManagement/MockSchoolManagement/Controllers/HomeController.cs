@@ -51,10 +51,14 @@ namespace MockSchoolManagement.Controllers
             return View();
         }
         [HttpPost]
-        public RedirectToActionResult Create(Student student) 
+        public IActionResult Create(Student student) 
         {
-            Student newstudent = _studentRepository.Add(student);
-            return RedirectToAction("Details",new { id=newstudent.Id }) ;
+            if (ModelState.IsValid)
+            {
+                Student newstudent = _studentRepository.Add(student);
+                return RedirectToAction("Details", new { id = newstudent.Id });
+            }
+            return View();
         }
 
         public IActionResult Privacy()
