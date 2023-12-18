@@ -36,8 +36,8 @@ namespace MockSchoolManagement.Controllers
             return View(model);
             //return View();
         }
-
-        public ViewResult Details(int?id) 
+        [HttpGet]
+        public ViewResult Details(int? id) 
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel();
             homeDetailsViewModel.PageTitle = "学生详情";
