@@ -56,7 +56,7 @@ namespace MockSchoolManagement.Controllers
             if (ModelState.IsValid)
             {
                 Student newstudent = _studentRepository.Add(student);
-                return RedirectToAction("Details", new { id = newstudent.Id });
+                //return RedirectToAction("Details", new { id = newstudent.Id });
             }
             return View();
         }
